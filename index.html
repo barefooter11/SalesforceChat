@@ -8982,8 +8982,28 @@
         </div>
     </div>
 
-    <!-- <script async type="text/javascript"
-        src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=1&cb=1990859748"></script> -->
+    <script type='text/javascript'>
+        
+        var pattern = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+        var current = 0;
+
+        document.addEventListener('keydown', ({ key }) => {
+
+            // If the key isn't in the pattern, or isn't the current key in the pattern, reset
+            if (event.key !== pattern[current++]) {
+                current = 0;
+                return;
+            }
+
+            // If complete, alert and reset
+            if (pattern.length === current) {
+                current = 0;
+                window.alert('You found it!');
+            }
+
+        }, false);
+    
+    </script>
 </body>
 
 </html>
